@@ -1,7 +1,8 @@
 <div class="jumbotron" class="center">
-  <h1>Welcome to iMagr!</h1>
+  <h1>iMagr!</h1>
 <p>For Photographers, Graphic Designers, Pictographers & anyone who loves to play with images!</p>
  <% if user_signed_in? %>
+   <h2>Welcome to iMagr.ng</h2>
    <p>You may continue below to experience our app </p>
    <%= link_to "Continue", about_path, class: "btn btn-primary btn-lg" %>
  <% else %>
