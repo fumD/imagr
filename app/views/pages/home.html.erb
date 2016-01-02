@@ -1,9 +1,14 @@
 <div class="jumbotron" class="center">
   <h1>Welcome to iMagr!</h1>
-<p>This is a new photo-utilisation,mobile-centric app!</p>
+<p>For Photographers, Graphic Designers, Pictographers & anyone who loves to play with images!</p>
+ <% if user_signed_in? %>
+   <p>You may continue below to experience our app </p>
+   <%= link_to "Continue", about_path, class: "btn btn-primary btn-lg" %>
+ <% else %>
 <p>
-<%= link_to "Register","#", class: "btn btn-primary btn-lg" %>
-<%= link_to "Sign In","#", class: "btn btn-default btn-lg" %>
+<%= link_to "Register", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+<%= link_to "Sign In", new_user_session_path, class: "btn btn-default btn-lg" %>
 </p>
+ <% end %>
 </div>
 
