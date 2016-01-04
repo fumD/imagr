@@ -1,5 +1,6 @@
 class FotosController < ApplicationController
   before_action :set_foto, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   respond_to :html
 
@@ -13,16 +14,21 @@ class FotosController < ApplicationController
   end
 
   def new
-    @foto = Foto.new
+    @foto = Foto.new #current_user.fotos.build
     respond_with(@foto)
   end
 
   def edit
   end
 
+#you modified the following
   def create
     @foto = Foto.new(foto_params)
-    @foto.save
+   if @foto.save
+     redirect_to @foto, notice: 'foto was successfully created.'
+   else
+     render action: 'new'
+   end
     respond_with(@foto)
   end
 

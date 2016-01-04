@@ -10,11 +10,12 @@ $brand-primary: #c0392b;//#2980b9;
 $jumbotron-bg: #7f8c8d;
 
 @import 'bootstrap';
-.center{
-    text-align: center;
+
+.jumbotron{
+    text-align: center
 }
 
-
+iframe{ border-radius: 20px}
 .navbar-brand{
     font-weight: bold;
 }
