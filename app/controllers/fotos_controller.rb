@@ -3,7 +3,7 @@ class FotosController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  respond_to :html
+  #respond_to :html
 
   def index
     @fotos = Foto.all
@@ -54,7 +54,7 @@ class FotosController < ApplicationController
     
     def correct_user
         @foto = current_user.fotos.find_by(id: params[:id])
-        redirect_to fotos_path, notice: "Unauthorized action" if @foto.nil?
+        redirect_to foto_path, notice: "Unauthorized action" if @foto.nil?
     end
 
     def foto_params
