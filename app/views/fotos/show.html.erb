@@ -9,6 +9,7 @@
   <strong>Image:</strong>
   <%= @foto.image %>
 </p>
-
+<% if @foto.user == current_user %>
 <%= link_to 'Edit', edit_foto_path(@foto) %> |
+<% end %>
 <%= link_to 'Back', fotos_path %>

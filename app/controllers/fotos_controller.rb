@@ -1,21 +1,22 @@
 class FotosController < ApplicationController
   before_action :set_foto, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   respond_to :html
 
   def index
     @fotos = Foto.all
-    respond_with(@fotos)
+    #respond_with(@fotos)
   end
 
   def show
-    respond_with(@foto)
+    #respond_with(@foto)
   end
 
   def new
-    @foto = Foto.new #current_user.fotos.build
-    respond_with(@foto)
+    @foto = current_user.fotos.build
+    #respond_with(@foto)
   end
 
   def edit
@@ -23,28 +24,37 @@ class FotosController < ApplicationController
 
 #you modified the following
   def create
-    @foto = Foto.new(foto_params)
+    @foto = current_user.fotos.build(foto_params)
    if @foto.save
-     redirect_to @foto, notice: 'foto was successfully created.'
+     redirect_to @foto, notice: '7oto was successfully added.'
    else
      render action: 'new'
    end
-    respond_with(@foto)
+    #respond_with(@foto)
   end
 
   def update
-    @foto.update(foto_params)
-    respond_with(@foto)
+   if @foto.update(foto_params)
+     redirect_to @foto, notice: '7oto was successfully updated.'
+   else
+     render action: 'edit'
+   end
+    #respond_with(@foto)
   end
 
   def destroy
     @foto.destroy
-    respond_with(@foto)
+    #respond_with(@foto)
   end
 
   private
     def set_foto
       @foto = Foto.find(params[:id])
+    end
+    
+    def correct_user
+        @foto = current_user.fotos.find_by(id: params[:id])
+        redirect_to fotos_path, notice: "Unauthorized action" if @foto.nil?
     end
 
     def foto_params
