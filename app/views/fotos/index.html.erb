@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Description</th>
       <th>User</th>
-      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,9 +13,9 @@
   <tbody>
     <% @fotos.each do |foto| %>
       <tr>
+        <td><%= image_tag foto.image.url %></td>
         <td><%= foto.description %></td>
         <td><%= foto.user.email if foto.user %></td>
-        <td><%= foto.image %></td>
         
         
         <td><%= link_to 'Show', foto %></td>

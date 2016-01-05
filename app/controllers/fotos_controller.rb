@@ -43,7 +43,12 @@ class FotosController < ApplicationController
   end
 
   def destroy
-    @foto.destroy
+    #if @foto.destroy(foto_params)
+    #   redirect_to @foto, notice: '7oto was successfully deleted.'
+    # else
+    #   render action: 'delete'
+    #end
+    
     #respond_with(@foto)
   end
 
