@@ -72,6 +72,8 @@ GEM
     json (1.8.3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    masonry-rails (0.2.4)
+      railties
     mime-types (2.99)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
@@ -159,6 +161,7 @@ DEPENDENCIES
   devise (~> 3.5.2)
   jbuilder (~> 2.0)
   jquery-rails
+  masonry-rails (~> 0.2.0)
   paperclip (~> 4.3)
   pg
   rails (= 4.1.8)
